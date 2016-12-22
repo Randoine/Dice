@@ -10,8 +10,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //blabla
-        System.out.println("safsf");
-        SYSTEM_HEALTH_SERVICE
+
     }
 }
