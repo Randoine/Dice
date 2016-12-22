@@ -12,5 +12,6 @@ public class MainActivity extends AppCompatActivity {
 
         //blabla
         System.out.println("safsf");
+        SYSTEM_HEALTH_SERVICE
     }
 }
