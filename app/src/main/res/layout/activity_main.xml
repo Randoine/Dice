@@ -11,15 +11,33 @@
     tools:context="dice.rav.com.dice.MainActivity">
 
     <TextView
+        android:id="@+id/mainTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome! \n Click button below to roll the dice!"
+        android:gravity="center" />
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
+        android:hint="0"
+        android:id="@+id/editText" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button"
-        android:layout_below="@+id/textView"
+        android:text="ROLL"
+        android:textSize="50dp"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/minValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set minimal dice value"
+        android:layout_below="@+id/editText"
         android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>
