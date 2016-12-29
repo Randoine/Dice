@@ -11,33 +11,54 @@
     tools:context="dice.rav.com.dice.MainActivity">
 
     <TextView
-        android:id="@+id/mainTextView"
+        android:id="@+id/mainText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome! \n Click button below to roll the dice!"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="@string/welcome_n_click_button_below_to_roll_the_dice" />
 
     <EditText
+        android:id="@+id/minimalValueEditField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="0"
-        android:id="@+id/editText" />
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/mainText"
+        android:paddingTop="20dp"
+        android:hint="@string/_1"/>
 
     <Button
+        android:id="@+id/roll_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:text="ROLL"
-        android:textSize="50dp"
-        android:layout_alignParentBottom="true"/>
-
+        android:layout_alignParentBottom="true"
+        android:text="@string/roll"
+        android:textSize="50sp"/>
     <TextView
-        android:id="@+id/minValueTextView"
+        android:id="@+id/SetMinValueText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set minimal dice value"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/mainText"
+        android:paddingTop="20dp"
+        android:text="@string/set_minimal_dice_value"
+        android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/SetMaxValueText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/SetMinValueText"
+        android:paddingTop="20dp"
+        android:text="@string/set_maximal_dice_value"
+        android:textSize="20sp" />
 
+    <EditText
+        android:id="@+id/maximumValueField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/minimalValueEditField"
+        android:hint="@string/_6"
+        android:paddingTop="20dp" />
 </RelativeLayout>

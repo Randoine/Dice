@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Dice</string>
+    <string name="welcome_n_click_button_below_to_roll_the_dice">Welcome! \n Click button below to roll the dice!</string>
+    <string name="roll">ROLL</string>
+    <string name="set_maximal_dice_value">Set maximal dice value:</string>
+    <string name="set_minimal_dice_value">Set minimal dice value:</string>
+    <string name="_1">1</string>
+    <string name="_6">6</string>
 </resources>
