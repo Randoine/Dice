@@ -3,33 +3,34 @@ package dice.rav.com.dice;
 
 
 public class Dice implements Rollable {
-    public int minValue;
-    public int maxValue;
+    public Integer minValue;
+    public Integer maxValue;
 
-    public Dice(int minValue, int maxValue) {
+    public Dice(Integer minValue, Integer maxValue) {
         this.minValue = minValue;
         this.maxValue = maxValue;
     }
 
-        public int getMinValue() {
+        public Integer getMinValue() {
         return minValue;
     }
 
-    public void setMinValue(int minValue) {
+    public void setMinValue(Integer minValue) {
         this.minValue = minValue;
     }
 
-    public int getMaxValue() {
+    public Integer getMaxValue() {
         return maxValue;
     }
 
-    public void setMaxValue(int maxValue) {
+    public void setMaxValue(Integer maxValue) {
         this.maxValue = maxValue;
     }
 
     @Override
     public int roll() {
-        int range = (maxValue - minValue) + 1;
-        return (int)(Math.random() * range) + minValue;
+        Integer range = (maxValue - minValue) + 1;
+        Double result = ((Math.random() * range) + minValue);
+        return result.intValue();
     }
 }
