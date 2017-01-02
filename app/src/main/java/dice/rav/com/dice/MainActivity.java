@@ -25,11 +25,21 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.roll_button)
-    void rollTheDice(){
-        Dice dice = new Dice(Integer.parseInt(mMinimalValue.getText().toString()),Integer.parseInt(mMaximumValue.getText().toString()));
-        Integer result = dice.roll();
-        Toast.makeText(this,String.format("Wylosowana liczba to %d", result),Toast.LENGTH_LONG).show();
-    }
 
+    @OnClick(R.id.roll_button)
+    void rollTheDice() {
+        try {
+            Dice dice = new Dice(Integer.parseInt(mMinimalValue.getText().toString()), Integer.parseInt(mMaximumValue.getText().toString()));
+            if (dice.getMaxValue() < 0 || dice.getMinValue() < 0) {
+                Toast.makeText(this, "Nieprawidłowy zakres", Toast.LENGTH_SHORT).show();
+            }
+            Integer result = dice.roll();
+            Toast.makeText(this, String.format("Wylosowana liczba to %d", result), Toast.LENGTH_LONG).show();
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Nieprawidłowy zakres", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
+
+

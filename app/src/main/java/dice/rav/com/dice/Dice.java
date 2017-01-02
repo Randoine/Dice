@@ -29,6 +29,7 @@ public class Dice implements Rollable {
 
     @Override
     public int roll() {
+
         Integer range = (maxValue - minValue) + 1;
         Double result = ((Math.random() * range) + minValue);
         return result.intValue();

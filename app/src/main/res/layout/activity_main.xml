@@ -24,6 +24,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@id/main_text"
         android:paddingTop="20dp"
+        android:inputType="number"
         android:hint="@string/_1"/>
 
     <Button
@@ -60,5 +61,6 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@id/minimal_value_edit_field"
         android:hint="@string/_6"
+        android:inputType="number"
         android:paddingTop="20dp" />
 </RelativeLayout>
