@@ -8,14 +8,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="dice.rav.com.dice.MainActivity">
+    tools:context="dice.rav.com.dice.CustomActivity">
 
     <TextView
         android:id="@+id/main_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/welcome_n_click_button_below_to_roll_the_dice" />
+        android:text="Set rolling range and hit ROLL button to roll the Dice" />
 
     <EditText
         android:id="@+id/minimal_value_edit_field"

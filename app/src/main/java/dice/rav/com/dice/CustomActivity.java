@@ -10,7 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class CustomActivity extends AppCompatActivity {
 
     @BindView(R.id.minimal_value_edit_field)
     EditText mMinimalValue;
