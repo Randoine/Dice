@@ -3,15 +3,18 @@ package dice.rav.com.dice;
 
 
 public class Dice implements Rollable {
-    public Integer minValue;
-    public Integer maxValue;
+    private Integer minValue;
+    private Integer maxValue;
 
     public Dice(Integer minValue, Integer maxValue) {
         this.minValue = minValue;
         this.maxValue = maxValue;
     }
 
-        public Integer getMinValue() {
+    public Dice() {
+    }
+
+    public Integer getMinValue() {
         return minValue;
     }
 

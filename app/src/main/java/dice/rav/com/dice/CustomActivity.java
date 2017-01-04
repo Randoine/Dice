@@ -2,7 +2,6 @@ package dice.rav.com.dice;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -12,10 +11,12 @@ import butterknife.OnClick;
 
 public class CustomActivity extends AppCompatActivity {
 
-    @BindView(R.id.minimal_value_edit_field)
+    @BindView(R.id.minimal_value_field)
     EditText mMinimalValue;
-    @BindView(R.id.maximum_value_edit_field)
+    @BindView(R.id.maximum_value_field)
     EditText mMaximumValue;
+
+    private Dice dice;
 
 
     @Override
@@ -23,13 +24,16 @@ public class CustomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        dice = new Dice();
     }
 
 
     @OnClick(R.id.roll_button)
     void rollTheDice() {
         try {
-            Dice dice = new Dice(Integer.parseInt(mMinimalValue.getText().toString()), Integer.parseInt(mMaximumValue.getText().toString()));
+            dice.setMinValue(Integer.parseInt(mMinimalValue.getText().toString()));
+            dice.setMaxValue(Integer.parseInt(mMaximumValue.getText().toString()));
+
             if (dice.getMaxValue() < 0 || dice.getMinValue() < 0) {
                 Toast.makeText(this, "Nieprawidłowy zakres", Toast.LENGTH_SHORT).show();
             }

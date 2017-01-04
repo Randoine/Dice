@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_launcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="dice.rav.com.dice.LauncherActivity">
+
+    <TextView
+        android:id="@+id/launcher_main_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Welcome! \n Please select a type of dice you want to ROLL!"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/standard_dice_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="Standard K6 dice"
+        android:layout_below="@+id/launcher_main_text"
+        android:layout_marginTop="35dp" />
+
+    <Button
+        android:id="@+id/custom_dice_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="Custom range dice"
+        android:layout_below="@+id/standard_dice_button"
+        android:layout_marginTop="35dp" />
+
+
+</RelativeLayout>
