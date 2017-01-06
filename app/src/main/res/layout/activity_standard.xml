@@ -16,8 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20sp"
-        android:text="Hit roll button to roll standard K6 Dice" />
+        android:text="Hit roll button to roll standard K6 Dice"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/roll_button"
@@ -25,5 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/main_text"
         android:text="@string/roll"
-        android:textSize="50sp"/>
+        android:textSize="50sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_of_results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/roll_button">
+
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
