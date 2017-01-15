@@ -1,5 +1,6 @@
 package dice.rav.com.dice;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,16 +10,24 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class StandardActivity extends AppCompatActivity {
+public class StandardActivity extends AppCompatActivity implements DiceActivitiesMethods {
 
-    private Dice dice;
+    Dice dice;
+    List<Result> results;
+    Result result;
+    ArrayList<String> rollResults;
+    Integer rollResult;
+    ResultListAdapter adapter;
+
 
     @BindView(R.id.list_of_results)
     RecyclerView mResultList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,32 +39,39 @@ public class StandardActivity extends AppCompatActivity {
         //1. W jakim układzie ma się wyświetlać lista wyników
         //Układ pionowy 1- element na wiersz
         mResultList.setLayoutManager(new LinearLayoutManager(this));
-
-        List<Result> results = new ArrayList<>();
-        Result result = new Result();
-        ArrayList<String> rollResults = new ArrayList<>();
-        rollResults.add("10");
-        rollResults.add("6");
-        result.setResultArray(rollResults);
-        results.add(result);
-
-        result = new Result();
-        rollResults = new ArrayList<>();
-        rollResults.add("3");
-        rollResults.add("2");
-        result.setResultArray(rollResults);
-        results.add(result);
-
-        ResultListAdapter adapter = new ResultListAdapter(results);
+        //2. Tworzy ArrayListę której elementy będą wyświetlane jako poszczególne wiersze listy
+        results = new ArrayList<>();
+        adapter = new ResultListAdapter(results);
         mResultList.setAdapter(adapter);
+
     }
 
+    @Override
     @OnClick(R.id.roll_button)
-    void rollTheDice() {
-        Integer result = dice.roll();
-        Toast.makeText(this, String.format("Wylosowana liczba to %d", result), Toast.LENGTH_LONG).show();
+    public void rollTheDice() {
+        rollResult = dice.roll();
+        addResultToList(rollResult);
+        adapter.notifyDataSetChanged();
+        Toast.makeText(this, String.format("Wylosowana liczba to %d", rollResult), Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void addResultToList(int x) {
+        rollResults = new ArrayList<>();
+        rollResults.add(String.valueOf(x));
+        result = new Result();
+        result.setResultArray(rollResults);
+        results.add(0, result);
+    }
+
+    // TODO: 2017-01-06 Zrobić żeby lista nie znikała po przekręceniu ekranu lub zablokować możliwość obrotu ekranu
+    // TODO: Zaimplementować usuwanie wierszy z listy
+    // TODO: Dodać action button jako przycisk do losowania
 
 
+//    @Override
+//    @OnClick(R.id.delete_button)
+//    public void deleteResult() {
+//
+//    }
 }
