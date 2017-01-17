@@ -1,7 +1,8 @@
 package dice.rav.com.dice;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Result {
     private ArrayList<String> resultArray;
@@ -22,4 +23,5 @@ public class Result {
     public void setArraySize(int arraySize) {
         this.arraySize = arraySize;
     }
+
 }

@@ -41,16 +41,31 @@ public class StandardActivity extends AppCompatActivity implements DiceActivitie
         mResultList.setLayoutManager(new LinearLayoutManager(this));
         //2. Tworzy ArrayListę której elementy będą wyświetlane jako poszczególne wiersze listy
         results = new ArrayList<>();
-        adapter = new ResultListAdapter(results);
+        adapter = new ResultListAdapter(results, this);
         mResultList.setAdapter(adapter);
 
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("results", );
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+    }
+
+
 
     @Override
     @OnClick(R.id.roll_button)
     public void rollTheDice() {
         rollResult = dice.roll();
         addResultToList(rollResult);
+        result = new Result();
         adapter.notifyDataSetChanged();
         Toast.makeText(this, String.format("Wylosowana liczba to %d", rollResult), Toast.LENGTH_LONG).show();
     }
@@ -62,16 +77,14 @@ public class StandardActivity extends AppCompatActivity implements DiceActivitie
         result = new Result();
         result.setResultArray(rollResults);
         results.add(0, result);
-    }
 
+    }
+    
+    
     // TODO: 2017-01-06 Zrobić żeby lista nie znikała po przekręceniu ekranu lub zablokować możliwość obrotu ekranu
-    // TODO: Zaimplementować usuwanie wierszy z listy
+
     // TODO: Dodać action button jako przycisk do losowania
 
 
-//    @Override
-//    @OnClick(R.id.delete_button)
-//    public void deleteResult() {
-//
-//    }
+
 }
