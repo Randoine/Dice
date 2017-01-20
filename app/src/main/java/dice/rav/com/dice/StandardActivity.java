@@ -5,10 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+
 import android.widget.Toast;
 
+
+
+
 import java.util.ArrayList;
-import java.util.List;
+
 
 
 import butterknife.BindView;
@@ -18,11 +23,12 @@ import butterknife.OnClick;
 public class StandardActivity extends AppCompatActivity implements DiceActivitiesMethods {
 
     Dice dice;
-    List<Result> results;
+    ArrayList<Result> results;
     Result result;
-    ArrayList<String> rollResults;
-    Integer rollResult;
+    int[] rollResults;
+    int rollResult;
     ResultListAdapter adapter;
+    int numberOfDices = 1;
 
 
     @BindView(R.id.list_of_results)
@@ -43,26 +49,30 @@ public class StandardActivity extends AppCompatActivity implements DiceActivitie
         results = new ArrayList<>();
         adapter = new ResultListAdapter(results, this);
         mResultList.setAdapter(adapter);
+        if (savedInstanceState!= null){
+            results = savedInstanceState.getParcelableArrayList("results");
+            adapter.setmResults(results);
+        }
 
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable("results", );
+        outState.putParcelableArrayList("results", results);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-
+        results = savedInstanceState.getParcelableArrayList("results");
+        adapter.setmResults(results);
     }
 
 
-
     @Override
-    @OnClick(R.id.roll_button)
-    public void rollTheDice() {
+    @OnClick(R.id.action_button)
+     public void rollTheDice() { //Losuje liczbę i dodaje do tabeli wyników
         rollResult = dice.roll();
         addResultToList(rollResult);
         result = new Result();
@@ -71,20 +81,13 @@ public class StandardActivity extends AppCompatActivity implements DiceActivitie
     }
 
     @Override
-    public void addResultToList(int x) {
-        rollResults = new ArrayList<>();
-        rollResults.add(String.valueOf(x));
+     public void addResultToList(int x) {
+        rollResults = new int[numberOfDices];
+        rollResults[0]= x;
         result = new Result();
         result.setResultArray(rollResults);
         results.add(0, result);
 
     }
-    
-    
-    // TODO: 2017-01-06 Zrobić żeby lista nie znikała po przekręceniu ekranu lub zablokować możliwość obrotu ekranu
-
-    // TODO: Dodać action button jako przycisk do losowania
-
-
 
 }

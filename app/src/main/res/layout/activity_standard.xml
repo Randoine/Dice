@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_standard"
     android:layout_width="match_parent"
@@ -19,19 +20,24 @@
         android:text="Hit roll button to roll standard K6 Dice"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/roll_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/main_text"
-        android:text="@string/roll"
-        android:textSize="50sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_of_results"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/roll_button">
+        android:layout_below="@+id/main_text"
+        android:layout_above="@+id/action_button">
 
     </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:fabSize="auto"
+        android:src="@drawable/ic_dice_5_black_48dp"
+        />
+
 </RelativeLayout>

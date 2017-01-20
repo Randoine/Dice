@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -17,11 +19,27 @@ import butterknife.OnClick;
 
 
 public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.ResultViewHolder>{
-    private List<Result> mResults;
+    private ArrayList<Result> mResults;
     private Context context;
 
-    public ResultListAdapter(List<Result> mResults, Context context) {
+    public ResultListAdapter(ArrayList<Result> mResults, Context context) {
         this.mResults = mResults;
+        this.context = context;
+    }
+
+    public ArrayList<Result> getmResults() {
+        return mResults;
+    }
+
+    public void setmResults(ArrayList<Result> mResults) {
+        this.mResults = mResults;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
         this.context = context;
     }
 
@@ -37,7 +55,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
         //Pobranie elementu danych na pozycji position
         Result result = mResults.get(position);
         //Uzupełnienie wodoku na podstawie pobranego obiektu
-        holder.mResults.setText(result.getResultArray().toString());
+        holder.mResults.setText(Arrays.toString(result.getResultArray()));
 
     }
 
