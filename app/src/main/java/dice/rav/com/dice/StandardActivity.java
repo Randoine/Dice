@@ -10,10 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 
-
-
 import java.util.ArrayList;
-
+import java.util.Arrays;
 
 
 import butterknife.BindView;
@@ -49,7 +47,7 @@ public class StandardActivity extends AppCompatActivity implements DiceActivitie
         results = new ArrayList<>();
         adapter = new ResultListAdapter(results, this);
         mResultList.setAdapter(adapter);
-        if (savedInstanceState!= null){
+        if (savedInstanceState != null) {
             results = savedInstanceState.getParcelableArrayList("results");
             adapter.setmResults(results);
         }
@@ -72,22 +70,15 @@ public class StandardActivity extends AppCompatActivity implements DiceActivitie
 
     @Override
     @OnClick(R.id.action_button)
-     public void rollTheDice() { //Losuje liczbę i dodaje do tabeli wyników
-        rollResult = dice.roll();
-        addResultToList(rollResult);
-        result = new Result();
-        adapter.notifyDataSetChanged();
-        Toast.makeText(this, String.format("Wylosowana liczba to %d", rollResult), Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-     public void addResultToList(int x) {
+    public void rollTheDice() { //Losuje liczbę i dodaje do tabeli wyników
         rollResults = new int[numberOfDices];
-        rollResults[0]= x;
+        rollResults[0] = dice.roll();
         result = new Result();
         result.setResultArray(rollResults);
         results.add(0, result);
-
+        adapter.notifyDataSetChanged();
+        Toast.makeText(this, "Wylosowana liczba to "+ Arrays.toString(rollResults),
+                Toast.LENGTH_LONG).show();
     }
 
 }

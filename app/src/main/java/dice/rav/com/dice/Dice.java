@@ -6,6 +6,7 @@ public class Dice implements Rollable {
     private Integer minValue;
     private Integer maxValue;
 
+
     public Dice(Integer minValue, Integer maxValue) {
         this.minValue = minValue;
         this.maxValue = maxValue;

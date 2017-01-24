@@ -38,6 +38,7 @@
         android:layout_centerHorizontal="true"
         app:fabSize="auto"
         android:src="@drawable/ic_dice_5_black_48dp"
+        android:layout_marginBottom="5dp"
         />
 
 </RelativeLayout>
