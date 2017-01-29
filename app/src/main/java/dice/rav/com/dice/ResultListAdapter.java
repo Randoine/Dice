@@ -35,14 +35,6 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
         this.mResults = mResults;
     }
 
-    public Context getContext() {
-        return context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
     @Override
     public ResultViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
