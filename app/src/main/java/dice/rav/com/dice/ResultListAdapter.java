@@ -46,7 +46,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
     public void onBindViewHolder(ResultViewHolder holder, int position) {
         //Pobranie elementu danych na pozycji position
         Result result = mResults.get(position);
-        //Uzupełnienie wodoku na podstawie pobranego obiektu
+        //Uzupełnienie wodoku na podstawie pobranego obiekt
         holder.mResults.setText(Arrays.toString(result.getResultArray()));
 
     }
