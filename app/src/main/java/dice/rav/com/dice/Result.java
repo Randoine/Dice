@@ -12,10 +12,6 @@ public class Result implements Parcelable {
         resultArray = new int[1];
     }
 
-    public Result(int x) {
-        resultArray = new int[x];
-    }
-
     protected Result(Parcel in) {
         resultArray = in.createIntArray();
     }
@@ -49,7 +45,4 @@ public class Result implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeIntArray(resultArray);
     }
-
-
-
 }

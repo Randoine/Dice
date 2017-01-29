@@ -5,7 +5,4 @@ public interface DiceActivitiesMethods {
 
     void rollTheDice();
 
-
-
-
 }
